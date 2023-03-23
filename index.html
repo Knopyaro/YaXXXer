@@ -14,8 +14,15 @@
     function transformWord() {
       const wordInput = document.getElementById("word-input");
       const transformedWord = wordInput.value.charAt(0) + 'X'.repeat(wordInput.value.length - 1);
-      document.getElementById("transformed-word").textContent = transformedWord;
+      const transformedWordElement = document.getElementById("transformed-word");
+      transformedWordElement.textContent = transformedWord;
+
+      transformedWordElement.addEventListener("click", function () {
+        const textToCopy = transformedWordElement.textContent;
+        navigator.clipboard.writeText(textToCopy);
+      });
     }
+
   </script>
 
 
