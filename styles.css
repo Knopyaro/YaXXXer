@@ -1,37 +1,49 @@
 body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 5px #ccc;
-      }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+}
 
-      label {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-      }
+label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
 
-      input[type="text"] {
-        font-size: 1.2em;
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        width: 100%;
-        margin-bottom: 20px;
-      }
+input[type="text"] {
+  font-size: 1.2em;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 25%; /* set the width of the input field to 25% of the page */
+  margin-bottom: 20px;
+}
 
-      #transformed-word {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
+#word-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#word-input label {
+  align-self: flex-start;
+}
+
+#transformed-word {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px; /* add a top margin to create space between the input field and the transformed word */
+}
