@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<label for="word-input">Введи логин:</label>
+<input type="text" id="word-input" oninput="transformWord()">
+
+<p><span id="transformed-word"></span></p>
+
+<script>
+function transformWord() {
+  const wordInput = document.getElementById("word-input");
+  const transformedWord = wordInput.value.charAt(0) + 'X'.repeat(wordInput.value.length - 1);
+  document.getElementById("transformed-word").textContent = transformedWord;
+}
+</script>
+
+
 </body>
 </html>
