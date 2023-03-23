@@ -6,17 +6,6 @@ body {
   margin: 0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #ccc;
-}
-
 label {
   font-size: 1.2em;
   margin-bottom: 10px;
@@ -27,20 +16,8 @@ input[type="text"] {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 25%; /* set the width of the input field to 25% of the page */
+  width: 25%;
   margin-bottom: 20px;
-}
-
-#word-input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px; /* add a bottom margin to create space between the input field and the transformed word */
-}
-
-#word-input label {
-  align-self: flex-start;
 }
 
 #transformed-word {
