@@ -29,7 +29,8 @@ input[type="text"] {
   font-weight: bold;
 }
 
-unselectable {
+label,
+input {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
