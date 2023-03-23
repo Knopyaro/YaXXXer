@@ -16,7 +16,7 @@ input[type="text"] {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 25%;
+  width: 25% !important;
   margin-bottom: 20px;
 }
 
