@@ -5,7 +5,18 @@
 
 <body>
 
-  <label for="word-input" class="unselectable">Введи логин:</label>
+  <div id="tutorial">
+    <h2>Как это работает</h2>
+    <p>1. Вставьте логин пользователя в поле для ввода... Profit.</p>
+    <p>2. Чтобы скопировать зашифрованный логин, нажмите на него, он автоматически скопируется в буфер обмена (можно
+      скопировать и выделением).</p>
+  </div>
+
+  <div id="credit">
+    <p>Сайт создан саппортом <b><i>@knopyaro</i></b></p>
+  </div>
+
+  <label for="word-input" class="unselectable">Введи нужный логин:</label>
   <input type="text" id="word-input" oninput="transformWord()" class="unselectable">
 
   <p id="transformed-word"></p>
@@ -18,12 +29,29 @@
       transformedWordElement.textContent = transformedWord;
 
       transformedWordElement.addEventListener("click", function () {
-        const textToCopy = transformedWordElement.textContent;
+        const textToCopy = transformedWord;
         navigator.clipboard.writeText(textToCopy);
+
+        const tooltip = document.createElement("span");
+        tooltip.classList.add("tooltip");
+        tooltip.textContent = "Скопировано в буфер обмена";
+        transformedWordElement.appendChild(tooltip);
+
+        setTimeout(() => {
+          tooltip.classList.add("show");
+        }, 10);
+
+        setTimeout(() => {
+          tooltip.classList.remove("show");
+          setTimeout(() => {
+            tooltip.remove();
+          }, 500);
+        }, 2000);
       });
     }
 
   </script>
+
 
 
 </body>
