@@ -30,7 +30,8 @@ input[type="text"] {
 }
 
 label,
-input {
+input,
+.tooltip {
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -58,6 +59,7 @@ input {
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  cursor: default;
 }
 
 .tooltip::before {
@@ -121,6 +123,7 @@ input {
   left: 230px;
   bottom: 45px;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 
