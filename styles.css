@@ -25,6 +25,10 @@ input[type="text"] {
   margin-bottom: 20px;
 }
 
+#word-input {
+  width: auto;
+}
+
 label,
 input {
   -webkit-user-drag: none;
@@ -102,6 +106,21 @@ input {
   left: 0;
   padding: 10px;
   background-color: #f1f1f1;
+}
+
+label {
+  display: block;
+}
+
+input {
+  padding-right: 30px;
+}
+
+#clear-button {
+  position: relative;
+  left: 230px;
+  bottom: 45px;
+  transform: translateY(-50%);
 }
 
 
