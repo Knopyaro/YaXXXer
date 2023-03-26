@@ -6,7 +6,7 @@ body {
   -webkit-justify-content: center;
   -webkit-align-items: center;
   -webkit-flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   font-family: "YSRegular";
 }
 
@@ -92,11 +92,10 @@ input,
 }
 
 .tooltip {
-  position: absolute;
-  top: 350px;
+  position: fixed;
+  bottom: -70vh;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
   padding: 5px 10px;
   background-color: rgba(88, 181, 57, 0.3);
   color: white;
@@ -107,11 +106,10 @@ input,
 }
 
 .tooltip2 {
-  position: absolute;
-  top: 67px;
+  position: fixed;
+  bottom: -45vh;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
   padding: 5px 10px;
   background-color: rgba(88, 181, 57, 0.3);
   color: white;
@@ -122,11 +120,10 @@ input,
 }
 
 .tooltip3 {
-  position: absolute;
-  top: 67px;
+  position: fixed;
+  bottom: -15vh;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
   padding: 5px 10px;
   background-color: rgba(88, 181, 57, 0.3);
   color: white;
@@ -140,8 +137,8 @@ input,
 .tooltip2::before,
 .tooltip3::before {
   content: '';
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  top: 5vh;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
   width: 10px;
