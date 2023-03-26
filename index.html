@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel="stylesheet" type="text/css" href="styles1.css" />
 
 <title>YaXXXer</title>
 
@@ -9,52 +9,73 @@
 
   <div id="tutorial">
     <h2>Как это работает</h2>
-    <p>1. Вставьте логин пользователя в поле для ввода... Profit.</p>
-    <p>2. Чтобы скопировать зашифрованный логин, нажмите на него, он автоматически скопируется в буфер обмена (можно
-      скопировать и выделением).</p>
-    <h6>При нажатии на крестик поле для ввода очищается, можно вставлять новый логин</h6>
+    <p>1. Вставьте данные пользователя в соответствующее поле для ввода... Profit.</p>
+    <p>Номера телефона поддерживаются в формате <b>+79876543210</b></p>
+    <p>Почтовые адреса поддерживаются в формате <b>username@domain.org</b></p>
+    <h6>При нажатии на крестик поле для ввода очищается, можно вставлять новые данные</h6>
     <hr>
-    <p>То же самое работает и для поля со вводом номера телефона (поддерживаются номера формата <b>+79876543210</b>)</p>
-    <h6>При нажатии на крестик поле для ввода очищается, можно вставлять новый номер телефона</h6>
+    <p id="help_credit">За помощь с реализацией шифрования почты спасибо <b>@SweetWelpe<b></p>
   </div>
+
 
   <div id="credit">
-    <p>Сайт создан саппортом <b><i>@knopyaro</i></b></p>
+    <p>Сайт создан и разработан саппортом <b><i>@knopyaro</i></b></p>
   </div>
 
-  <label for="word-input">Введи нужный логин:</label>
-  <input type="text" id="word-input" oninput="transformWord()">
+  <div class="word-container">
+    <label for="word-input">Введи нужный логин:</label>
 
-  <div style="margin-bottom: 50px;"></div>
+    <button id="clear-button">
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
 
-  <button id="clear-button">
-    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none"
-      stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
-  <button id="clear-button2">
-    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none"
-      stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-  </button>
+    <input type="text" id="word-input" oninput="transformWord()">
+    <p id="transformed-word"></p>
+  </div>
 
+  <div class="word-container">
+    <label for="word-input2">Введи номер телефона:</label>
 
-  <label for="word-input2">Введи номер телефона:</label>
-  <input type="text" id="word-input2" oninput="transformWord2()">
-  <p id="transformed-word2"></p>
+    <button id="clear-button2">
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
 
-  <p id="transformed-word"></p>
+    <input type="text" id="word-input2" oninput="transformWord2()">
+    <p id="transformed-word2"></p>
+  </div>
+
+  <div class="word-container">
+    <label for="email-input">Введи нужную почту:</label>
+
+    <button id="clear-button3">
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="3" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <input type="text" id="email-input" oninput="transformEmail()">
+    <p id="transformed-email"></p>
+  </div>
 
   <script>
     const clearButton = document.getElementById("clear-button");
     const clearButton2 = document.getElementById("clear-button2");
+    const clearButton3 = document.getElementById("clear-button3");
+
     const wordInput = document.getElementById("word-input");
     const wordInput2 = document.getElementById("word-input2");
-    const transformedWordElement2 = document.getElementById("transformed-word2");
+    const emailInput = document.getElementById("email-input");
+
 
     clearButton.addEventListener("click", function () {
       wordInput.value = "";
@@ -64,13 +85,15 @@
       wordInput2.value = "";
     });
 
+    clearButton3.addEventListener("click", function () {
+      emailInput.value = "";
+    });
+
     function transformWord() {
       const wordInput = document.getElementById("word-input");
       const transformedWord = wordInput.value.charAt(0) + 'X'.repeat(wordInput.value.length - 1);
       const transformedWordElement = document.getElementById("transformed-word");
       transformedWordElement.textContent = transformedWord;
-
-
 
       transformedWordElement.addEventListener("click", function () {
         const textToCopy = transformedWord;
@@ -98,6 +121,7 @@
       const wordInput2 = document.getElementById("word-input2");
       const wordLength = wordInput2.value.length;
       const transformedWord2 = wordInput2.value.slice(0, 3) + 'X'.repeat(wordLength - 5) + wordInput2.value.slice(wordLength - 2);
+      const transformedWordElement2 = document.getElementById("transformed-word2");
       transformedWordElement2.textContent = transformedWord2;
 
       transformedWordElement2.addEventListener("click", function () {
@@ -122,11 +146,50 @@
       });
     }
 
+    function transformEmail() {
+      const emailInput = document.getElementById("email-input");
+      const transformedEmail = maskEmail(emailInput.value);
+      const transformedEmailElement = document.getElementById("transformed-email");
+      transformedEmailElement.textContent = transformedEmail;
 
+      transformedEmailElement.addEventListener("click", function () {
+        const textToCopy = transformedEmail;
+        navigator.clipboard.writeText(textToCopy);
+
+        const tooltip3 = document.createElement("span");
+        tooltip3.classList.add("tooltip2");
+        tooltip3.textContent = "Скопировано в буфер обмена";
+        transformedEmailElement.appendChild(tooltip3);
+
+        setTimeout(() => {
+          tooltip3.classList.add("show");
+        }, 10);
+
+        setTimeout(() => {
+          tooltip3.classList.remove("show");
+          setTimeout(() => {
+            tooltip3.remove();
+          }, 500);
+        }, 2000);
+      });
+    }
+
+    function maskEmail(email) {
+      let transformedEmail = "";
+
+      for (let i = 0; i < email.length; i++) {
+        if (i >= 1 && i < email.indexOf("@") && /[^\s@]/.test(email[i])) {
+          transformedEmail += "X";
+        } else if (i >= email.indexOf("@") + 2 && i < email.lastIndexOf(".") && /[^\s@]/.test(email[i])) {
+          transformedEmail += "X";
+        } else {
+          transformedEmail += email[i];
+        }
+      }
+
+      return transformedEmail;
+    }
   </script>
-
-
-
 </body>
 
 </html>
