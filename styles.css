@@ -7,7 +7,7 @@ body {
   -webkit-align-items: center;
   -webkit-flex-direction: column;
   /* height: 100vh; */
-  font-family: "YSRegular";
+  font-family: "YSRegular", arial;
 }
 
 label {

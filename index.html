@@ -118,31 +118,39 @@
 
     function transformWord2() {
       const wordInput2 = document.getElementById("word-input2");
-      const wordLength = wordInput2.value.length;
-      const transformedWord2 = wordInput2.value.slice(0, 3) + 'X'.repeat(wordLength - 5) + wordInput2.value.slice(wordLength - 2);
+      let word = wordInput2.value.replace(/\D/g, '');
       const transformedWordElement2 = document.getElementById("transformed-word2");
-      transformedWordElement2.textContent = transformedWord2;
 
-      transformedWordElement2.addEventListener("click", function () {
-        const textToCopy = transformedWord2;
-        navigator.clipboard.writeText(textToCopy);
+      if (word.length > 0) {
+        word = word.substring(0, 11);
 
-        const tooltip2 = document.createElement("span");
-        tooltip2.classList.add("tooltip2");
-        tooltip2.textContent = "Скопировано в буфер обмена";
-        transformedWordElement2.appendChild(tooltip2);
+        const maskedNumber = '+7(' + word.substring(1, 2) + 'X'.repeat(2) + ')' + 'X'.repeat(3) + '-' + 'X'.repeat(2) + '-' + word.substring(9, 11);
 
-        setTimeout(() => {
-          tooltip2.classList.add("show");
-        }, 10);
+        transformedWordElement2.textContent = maskedNumber;
 
-        setTimeout(() => {
-          tooltip2.classList.remove("show");
+        transformedWordElement2.addEventListener("click", function () {
+          const textToCopy = maskedNumber;
+          navigator.clipboard.writeText(textToCopy);
+
+          const tooltip2 = document.createElement("span");
+          tooltip2.classList.add("tooltip2");
+          tooltip2.textContent = "Скопировано в буфер обмена";
+          transformedWordElement2.appendChild(tooltip2);
+
           setTimeout(() => {
-            tooltip2.remove();
-          }, 500);
-        }, 2000);
-      });
+            tooltip2.classList.add("show");
+          }, 10);
+
+          setTimeout(() => {
+            tooltip2.classList.remove("show");
+            setTimeout(() => {
+              tooltip2.remove();
+            }, 500);
+          }, 2000);
+        });
+      } else {
+        transformedWordElement2.textContent = '';
+      }
     }
 
     function transformEmail() {
